@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TA-Payroll Enhancer
 // @version      1.4
-// @description  Adds live-updating shift hour summary with special task separation and visible entry count
+// @description  Adds various features to update your Payroll experience
 // @match        *://ta-payroll.azurewebsites.net/*
 // @grant        none
 // @downloadURL  https://github.com/TA-unofficial/userscripts/raw/refs/heads/main/ta-payroll-enhancer.user.js
@@ -61,6 +61,15 @@
         // Get visible entries value from dropdown
         const entryDropdown = document.querySelector('#DataTables_Table_0_length > label > select');
         const entryCount = entryDropdown ? entryDropdown.value : 'x';
+        
+        // Get total entries
+        let totalCount = 0;
+        const infoText = document.querySelector('#DataTables_Table_0_info')?.textContent;
+        if (infoText) {
+            // Match "of X entries" where X is the total
+            const match = infoText.match(/of\s+(\d+)\s+entries/);
+            totalCount = match ? parseInt(match[1], 10) : 0;
+        }
 
         // Create or update summary container
         let summaryDiv = document.getElementById('shift-summary');
@@ -76,7 +85,7 @@
         }
 
         summaryDiv.innerHTML = `
-            <h3 style="margin-bottom:0">Shift hour summary <small class="text-muted">(showing values for ${totalRows}/${entryCount} entries)</small></h3>
+            <h3>Shift hour summary <small class="text-muted">(showing values for ${totalRows} entries out of the total ${totalCount}.)</small></h3>
             <p style="margin-bottom:0"><strong>Total Shift Hours:</strong> ${formatDuration(totalShiftSeconds)}</p>
             <p style="margin-bottom:0"><strong>Total Special Task Hours:</strong> ${formatDuration(totalSpecialTaskSeconds)}</p>
             <p style="margin-bottom:0"><strong>Total Hours:</strong> ${formatDuration(totalSeconds)}</p>
