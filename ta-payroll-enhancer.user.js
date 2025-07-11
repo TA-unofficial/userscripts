@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         TA-Payroll Enhancer
-// @version      1.4
+// @version      1.5
 // @description  Adds various features to update your Payroll experience
 // @match        *://ta-payroll.azurewebsites.net/*
 // @grant        none
-// @downloadURL  https://github.com/TA-unofficial/userscripts/raw/refs/heads/main/ta-payroll-enhancer.user.js
-// @updateURL    https://github.com/TA-unofficial/userscripts/raw/refs/heads/main/ta-payroll-enhancer.user.js
+// @downloadURL  https://raw.githubusercontent.com/TA-unofficial/userscripts/refs/heads/main/ta-payroll-enhancer.user.js
+// @updateURL    https://raw.githubusercontent.com/TA-unofficial/userscripts/refs/heads/main/ta-payroll-enhancer.user.js
 // ==/UserScript==
 
 (function () {
