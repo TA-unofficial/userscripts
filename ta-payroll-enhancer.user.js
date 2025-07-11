@@ -4,6 +4,8 @@
 // @description  Adds live-updating shift hour summary with special task separation and visible entry count
 // @match        *://ta-payroll.azurewebsites.net/*
 // @grant        none
+// @downloadURL  https://github.com/TA-unofficial/userscripts/raw/refs/heads/main/ta-payroll-enhancer.user.js
+// @updateURL    https://github.com/TA-unofficial/userscripts/raw/refs/heads/main/ta-payroll-enhancer.user.js
 // ==/UserScript==
 
 (function () {
