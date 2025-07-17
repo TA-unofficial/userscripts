@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         TA-Payroll Enhancer
-// @version      1.5
+// @version      1.5.1
 // @description  Adds various features to update your Payroll experience
 // @match        *://ta-payroll.azurewebsites.net/*
 // @grant        none
@@ -44,10 +44,10 @@
 
                 if (!isNaN(start) && !isNaN(end) && end > start) {
                     const duration = (end - start) / 1000;
-                    if (typeText === 'special task') {
-                        totalSpecialTaskSeconds += duration;
-                    } else {
+                    if (/^S[1-6](\s*-\s*S[1-6])?$/.test(typeText)) {
                         totalShiftSeconds += duration;
+                    } else {
+                        totalSpecialTaskSeconds += duration;
                     }
                 }
                 totalRows++;
