@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         TA-Payroll Enhancer
-// @version      1.5.1
+// @version      1.5.2
 // @description  Adds various features to update your Payroll experience
 // @match        *://ta-payroll.azurewebsites.net/*
 // @grant        none
@@ -37,7 +37,7 @@
             if (cells.length >= 4) {
                 const startText = cells[1].textContent.trim();
                 const endText = cells[2].textContent.trim().replace(/\s+/g, ' ');
-                const typeText = cells[3].textContent.trim().toLowerCase();
+                const typeText = cells[3].textContent.trim().toUpperCase();
 
                 const start = parseDateString(startText);
                 const end = parseDateString(endText);
